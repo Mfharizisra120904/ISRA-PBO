@@ -1,0 +1,87 @@
+Microsoft Windows [Version 10.0.22621.2861]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\fhari>cd..
+
+C:\Users>cd..
+
+C:\>cd xampp
+
+C:\xampp>cd mysql
+
+C:\xampp\mysql>cd bin
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 257
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use apotek
+Database changed
+MariaDB [apotek]> select * from data_obat;
++----+--------+-------------+-------+--------+
+| id | kdobat | nama        | berat | bentuk |
++----+--------+-------------+-------+--------+
+|  1 | 001    | Paracetamol | 10mg  | tablet |
+|  2 | 002    | Bodrex      | 11mg  | tablet |
+|  3 | 003    | antasida    | 17mg  | tablet |
+|  4 | 004    | promag      | 14mg  | tablet |
++----+--------+-------------+-------+--------+
+4 rows in set (0.001 sec)
+
+MariaDB [apotek]> insert into data_obat(kdobat,nama,berat,bentuk)velues('005','amoksilin','11mg','tablet');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'velues('005','amoksilin','11mg','tablet')' at line 1
+MariaDB [apotek]> insert into data_obat(kdobat,nama,berat,bentuk)values('005','amoksilin','11mg','tablet');
+Query OK, 1 row affected (0.040 sec)
+
+MariaDB [apotek]> select * from data_obat;
++----+--------+-------------+-------+--------+
+| id | kdobat | nama        | berat | bentuk |
++----+--------+-------------+-------+--------+
+|  1 | 001    | Paracetamol | 10mg  | tablet |
+|  2 | 002    | Bodrex      | 11mg  | tablet |
+|  3 | 003    | antasida    | 17mg  | tablet |
+|  4 | 004    | promag      | 14mg  | tablet |
+|  8 | 005    | amoksilin   | 11mg  | tablet |
++----+--------+-------------+-------+--------+
+5 rows in set (0.001 sec)
+
+MariaDB [apotek]> insert into data_obat(kdobat,nama,berat,bentuk)values('006','mixagrip','20mg','tablet');
+Query OK, 1 row affected (0.039 sec)
+
+MariaDB [apotek]> select * from data_obat;
++----+--------+-------------+-------+--------+
+| id | kdobat | nama        | berat | bentuk |
++----+--------+-------------+-------+--------+
+|  1 | 001    | Paracetamol | 10mg  | tablet |
+|  2 | 002    | Bodrex      | 11mg  | tablet |
+|  3 | 003    | antasida    | 17mg  | tablet |
+|  4 | 004    | promag      | 14mg  | tablet |
+|  8 | 005    | amoksilin   | 11mg  | tablet |
+|  9 | 006    | mixagrip    | 20mg  | tablet |
++----+--------+-------------+-------+--------+
+6 rows in set (0.038 sec)
+
+MariaDB [apotek]> insert into data_obat(kdobat,nama,berat,bentuk)values('007','paratusin','11mg','tablet');
+Query OK, 1 row affected (0.040 sec)
+
+MariaDB [apotek]> select * from data_obat;
++----+--------+-------------+-------+--------+
+| id | kdobat | nama        | berat | bentuk |
++----+--------+-------------+-------+--------+
+|  1 | 001    | Paracetamol | 10mg  | tablet |
+|  2 | 002    | Bodrex      | 11mg  | tablet |
+|  3 | 003    | antasida    | 17mg  | tablet |
+|  4 | 004    | promag      | 14mg  | tablet |
+|  8 | 005    | amoksilin   | 11mg  | tablet |
+|  9 | 006    | mixagrip    | 20mg  | tablet |
+| 10 | 007    | paratusin   | 11mg  | tablet |
++----+--------+-------------+-------+--------+
+7 rows in set (0.001 sec)
+
+MariaDB [apotek]>
